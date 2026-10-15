@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر AMIR STORE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- خلفية متحركة -->
+    <div class="bg-animation">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- الهيدر -->
+    <header>
+        <h1>متجر AMIR STORE</h1>
+        <p>اكتشف أفضل المنتجات بأفضل الأسعار</p>
+    </header>
+
+    <!-- شريط البحث -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="ابحث عن منتج..." onkeyup="filterProducts()">
+    </div>
+
+    <div class="products-count" id="productsCount"></div>
+
+    <!-- شبكة المنتجات -->
+    <div class="products-grid" id="productsGrid">
+
+        <!-- المنتج 1 -->
+        <div class="product-card" data-name="هاتف ذكي برو ماكس">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/1a1a2e/ffd700?text=هاتف+ذكي" class="product-image" alt="هاتف ذكي" onclick="openProduct('https://example.com/product/1')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">هاتف ذكي برو ماكس</div>
+                <div class="product-price"><span class="currency">ج.م</span>12,999</div>
+                <div class="product-badge hot">الأكثر مبيعاً</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/1')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 2 -->
+        <div class="product-card" data-name="سماعات لاسلكية فاخرة">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/16213e/ffd700?text=سماعات" class="product-image" alt="سماعات" onclick="openProduct('https://example.com/product/2')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">سماعات لاسلكية فاخرة</div>
+                <div class="product-price"><span class="currency">ج.م</span>2,499</div>
+                <div class="product-badge new">جديد</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/2')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 3 -->
+        <div class="product-card" data-name="ساعة ذكية رياضية">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/0f3460/ffd700?text=ساعة+ذكية" class="product-image" alt="ساعة ذكية" onclick="openProduct('https://example.com/product/3')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">ساعة ذكية رياضية</div>
+                <div class="product-price"><span class="currency">ج.م</span>3,299</div>
+                <div class="product-badge sale">خصم 20%</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/3')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 4 -->
+        <div class="product-card" data-name="لابتوب احترافي">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/533483/ffd700?text=لابتوب" class="product-image" alt="لابتوب" onclick="openProduct('https://example.com/product/4')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">لابتوب احترافي للألعاب</div>
+                <div class="product-price"><span class="currency">ج.م</span>24,999</div>
+                <div class="product-badge hot">الأكثر مبيعاً</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/4')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 5 -->
+        <div class="product-card" data-name="كاميرا احترافية">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/e94560/ffd700?text=كاميرا" class="product-image" alt="كاميرا" onclick="openProduct('https://example.com/product/5')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">كاميرا احترافية 4K</div>
+                <div class="product-price"><span class="currency">ج.م</span>18,500</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/5')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 6 -->
+        <div class="product-card" data-name="شاحن لاسلكي سريع">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/1a1a2e/ffd700?text=شاحن" class="product-image" alt="شاحن" onclick="openProduct('https://example.com/product/6')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">شاحن لاسلكي سريع 65W</div>
+                <div class="product-price"><span class="currency">ج.م</span>899</div>
+                <div class="product-badge new">جديد</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/6')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 7 -->
+        <div class="product-card" data-name="ماوس جيمنج">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/16213e/ffd700?text=ماوس" class="product-image" alt="ماوس" onclick="openProduct('https://example.com/product/7')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">ماوس جيمنج RGB</div>
+                <div class="product-price"><span class="currency">ج.م</span>1,199</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/7')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 8 -->
+        <div class="product-card" data-name="كيبورد ميكانيكي">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/0f3460/ffd700?text=كيبورد" class="product-image" alt="كيبورد" onclick="openProduct('https://example.com/product/8')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">كيبورد ميكانيكي RGB</div>
+                <div class="product-price"><span class="currency">ج.م</span>2,799</div>
+                <div class="product-badge sale">خصم 15%</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/8')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 9 -->
+        <div class="product-card" data-name="شاشة 27 بوصة">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/533483/ffd700?text=شاشة" class="product-image" alt="شاشة" onclick="openProduct('https://example.com/product/9')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">شاشة 27 بوصة 144Hz</div>
+                <div class="product-price"><span class="currency">ج.م</span>6,499</div>
+                <div class="product-badge hot">الأكثر مبيعاً</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/9')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 10 -->
+        <div class="product-card" data-name="تابلت 10 بوصة">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/e94560/ffd700?text=تابلت" class="product-image" alt="تابلت" onclick="openProduct('https://example.com/product/10')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">تابلت 10 بوصة 128GB</div>
+                <div class="product-price"><span class="currency">ج.م</span>5,999</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/10')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 11 -->
+        <div class="product-card" data-name="باور بانك 20000">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/1a1a2e/ffd700?text=باور+بانك" class="product-image" alt="باور بانك" onclick="openProduct('https://example.com/product/11')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">باور بانك 20000mAh</div>
+                <div class="product-price"><span class="currency">ج.م</span>1,599</div>
+                <div class="product-badge new">جديد</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/11')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 12 -->
+        <div class="product-card" data-name="ستاند لابتوب">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/16213e/ffd700?text=ستاند" class="product-image" alt="ستاند" onclick="openProduct('https://example.com/product/12')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">ستاند لابتوب قابل للطي</div>
+                <div class="product-price"><span class="currency">ج.م</span>799</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/12')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 13 -->
+        <div class="product-card" data-name="مايكروفون احترافي">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/0f3460/ffd700?text=مايكروفون" class="product-image" alt="مايكروفون" onclick="openProduct('https://example.com/product/13')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">مايكروفون احترافي USB</div>
+                <div class="product-price"><span class="currency">ج.م</span>3,499</div>
+                <div class="product-badge hot">الأكثر مبيعاً</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/13')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 14 -->
+        <div class="product-card" data-name="كرسي جيمنج">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/533483/ffd700?text=كرسي" class="product-image" alt="كرسي" onclick="openProduct('https://example.com/product/14')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">كرسي جيمنج مريح</div>
+                <div class="product-price"><span class="currency">ج.م</span>4,999</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/14')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 15 -->
+        <div class="product-card" data-name="راوتر واي فاي 6">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/e94560/ffd700?text=راوتر" class="product-image" alt="راوتر" onclick="openProduct('https://example.com/product/15')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">راوتر واي فاي 6 ثلاثي</div>
+                <div class="product-price"><span class="currency">ج.م</span>3,899</div>
+                <div class="product-badge sale">خصم 10%</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/15')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 16 -->
+        <div class="product-card" data-name="فلاشة 256GB">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/1a1a2e/ffd700?text=فلاشة" class="product-image" alt="فلاشة" onclick="openProduct('https://example.com/product/16')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">فلاشة USB 3.2 256GB</div>
+                <div class="product-price"><span class="currency">ج.م</span>699</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/16')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 17 -->
+        <div class="product-card" data-name="هارد SSD 1TB">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/16213e/ffd700?text=SSD" class="product-image" alt="SSD" onclick="openProduct('https://example.com/product/17')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">هارد SSD NVMe 1TB</div>
+                <div class="product-price"><span class="currency">ج.م</span>4,299</div>
+                <div class="product-badge new">جديد</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/17')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 18 -->
+        <div class="product-card" data-name="جراب حماية">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/0f3460/ffd700?text=جراب" class="product-image" alt="جراب" onclick="openProduct('https://example.com/product/18')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">جراب حماية فاخر</div>
+                <div class="product-price"><span class="currency">ج.م</span>399</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/18')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 19 -->
+        <div class="product-card" data-name="واقي شاشة زجاجي">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/533483/ffd700?text=واقي+شاشة" class="product-image" alt="واقي شاشة" onclick="openProduct('https://example.com/product/19')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">واقي شاشة زجاجي 9D</div>
+                <div class="product-price"><span class="currency">ج.م</span>199</div>
+                <div class="product-badge sale">اشترِ 2 واحصل على 1</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/19')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 20 -->
+        <div class="product-card" data-name="كابل شحن سريع">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/e94560/ffd700?text=كابل" class="product-image" alt="كابل" onclick="openProduct('https://example.com/product/20')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">كابل شحن سريع 2 متر</div>
+                <div class="product-price"><span class="currency">ج.م</span>249</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/20')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 21 -->
+        <div class="product-card" data-name="مكبر صوت بلوتوث">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/1a1a2e/ffd700?text=مكبر+صوت" class="product-image" alt="مكبر صوت" onclick="openProduct('https://example.com/product/21')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">مكبر صوت بلوتوث 40W</div>
+                <div class="product-price"><span class="currency">ج.م</span>2,199</div>
+                <div class="product-badge hot">الأكثر مبيعاً</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/21')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 22 -->
+        <div class="product-card" data-name="قاعدة تبريد">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/16213e/ffd700?text=تبريد" class="product-image" alt="تبريد" onclick="openProduct('https://example.com/product/22')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">قاعدة تبريد للابتوب</div>
+                <div class="product-price"><span class="currency">ج.م</span>599</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/22')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 23 -->
+        <div class="product-card" data-name="هوب USB-C">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/0f3460/ffd700?text=هوب" class="product-image" alt="هوب" onclick="openProduct('https://example.com/product/23')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">هوب USB-C 7 في 1</div>
+                <div class="product-price"><span class="currency">ج.م</span>1,399</div>
+                <div class="product-badge new">جديد</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/23')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 24 -->
+        <div class="product-card" data-name="بروجكتور منزلي">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/533483/ffd700?text=بروجكتور" class="product-image" alt="بروجكتور" onclick="openProduct('https://example.com/product/24')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">بروجكتور منزلي Full HD</div>
+                <div class="product-price"><span class="currency">ج.م</span>7,999</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/24')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 25 -->
+        <div class="product-card" data-name="ذاكرة رام 32GB">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/e94560/ffd700?text=رام" class="product-image" alt="رام" onclick="openProduct('https://example.com/product/25')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">ذاكرة رام DDR5 32GB</div>
+                <div class="product-price"><span class="currency">ج.م</span>5,499</div>
+                <div class="product-badge sale">خصم 25%</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/25')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 26 -->
+        <div class="product-card" data-name="كرت شاشة RTX">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/1a1a2e/ffd700?text=كرت+شاشة" class="product-image" alt="كرت شاشة" onclick="openProduct('https://example.com/product/26')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">كرت شاشة RTX 4070</div>
+                <div class="product-price"><span class="currency">ج.م</span>32,999</div>
+                <div class="product-badge hot">محدود</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/26')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 27 -->
+        <div class="product-card" data-name="معالج i9">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/16213e/ffd700?text=معالج" class="product-image" alt="معالج" onclick="openProduct('https://example.com/product/27')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">معالج Intel Core i9</div>
+                <div class="product-price"><span class="currency">ج.م</span>18,999</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/27')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 28 -->
+        <div class="product-card" data-name="لوحة مفاتيح لاسلكية">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/0f3460/ffd700?text=كيبورد+لاسلكي" class="product-image" alt="كيبورد لاسلكي" onclick="openProduct('https://example.com/product/28')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">لوحة مفاتيح لاسلكية صغيرة</div>
+                <div class="product-price"><span class="currency">ج.م</span>1,899</div>
+                <div class="product-badge new">جديد</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/28')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 29 -->
+        <div class="product-card" data-name="كاميرا ويب 4K">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/533483/ffd700?text=كاميرا+ويب" class="product-image" alt="كاميرا ويب" onclick="openProduct('https://example.com/product/29')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">كاميرا ويب 4K مع مايك</div>
+                <div class="product-price"><span class="currency">ج.م</span>2,599</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/29')">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- المنتج 30 -->
+        <div class="product-card" data-name="جهاز توجيه شبكة">
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/400x300/e94560/ffd700?text=توجيه" class="product-image" alt="توجيه" onclick="openProduct('https://example.com/product/30')">
+            </div>
+            <div class="product-info">
+                <div class="product-name">جهاز توجيه شبكة Mesh</div>
+                <div class="product-price"><span class="currency">ج.م</span>8,999</div>
+                <div class="product-badge sale">عرض خاص</div>
+                <button class="buy-btn" onclick="openProduct('https://example.com/product/30')">شراء الآن</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
